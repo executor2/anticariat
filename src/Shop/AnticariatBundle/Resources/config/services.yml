@@ -1,0 +1,4 @@
+services:
+#    shop_anticariat.example:
+#        class: Shop\AnticariatBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

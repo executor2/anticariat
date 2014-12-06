@@ -1,0 +1,13 @@
+/*
+	This is the css file for the header
+*/
+
+#header{
+	width: 100%;
+	max-width: 1228px !important;
+	min-width: 980px;
+	margin: 0 auto;
+	text-align: left;
+	display: block;
+	border: 1px solid red;
+}

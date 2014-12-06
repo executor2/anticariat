@@ -1,0 +1,61 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Book list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Author</th>
+                <th>Yearofpublication</th>
+                <th>Createdat</th>
+                <th>Updateat</th>
+                <th>Quantity</th>
+                <th>Noofpages</th>
+                <th>Noofvolume</th>
+                <th>Collection</th>
+                <th>Isbn</th>
+                <th>Format</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('book_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.name }}</td>
+                <td>{{ entity.author }}</td>
+                <td>{% if entity.yearOfPublication %}{{ entity.yearOfPublication|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if entity.createdAt %}{{ entity.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if entity.updateAt %}{{ entity.updateAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.quantity }}</td>
+                <td>{{ entity.noOfPages }}</td>
+                <td>{{ entity.noOfVolume }}</td>
+                <td>{{ entity.collection }}</td>
+                <td>{{ entity.isbn }}</td>
+                <td>{{ entity.format }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('book_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('book_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('book_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

@@ -1,0 +1,3 @@
+controller:
+    resource: "@ShopAnticariatBundle/Controller"
+    type:     annotation
